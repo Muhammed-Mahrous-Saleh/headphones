@@ -1,0 +1,13 @@
+#!/bin/bash
+
+read -p "what is old file number:" var
+
+echo "from: $((var))-styles.css"
+echo "to: $((var+1))-styles.css"
+echo "from: $((var))-index.html"
+echo "to: $((var+1))-index.html"
+
+cp -n "$((var))-index.html" "$((var+1))-index.html"
+cp -n "$((var))-styles.css" "$((var+1))-styles.css"
+
+echo "Done"

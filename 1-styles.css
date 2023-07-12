@@ -328,7 +328,6 @@ ul.row {
     height: 14px;
     justify-content: space-between;
 }
-
 .menu-container {
     display: none;
 }
@@ -359,16 +358,11 @@ ul.row {
 }
 
 @media screen And (max-width: 480px) {
-    .landing-header {
-        background-position: -350px -30px;
-    }
-
     .menu-container {
         display: block;
         cursor: pointer;
     }
-
-    .menu-container:active~.sub-container .nav {
+    .menu-container:active~.sub-container .nav{
         display: flex;
         flex-direction: column;
         align-content: center;
@@ -377,13 +371,12 @@ ul.row {
         text-align: center;
         align-items: center;
     }
-
-    .nav .nav-item {
+    .nav .nav-item{
         margin: 0 !important;
         width: fit-content;
         padding-left: 0;
         padding-right: 0;
-    }
+    }    
 }
 
 /* Navbar
@@ -469,7 +462,7 @@ ul.row {
         flex-direction: column;
     }
 
-
+    
 
     .nav {
         display: none;
@@ -484,7 +477,7 @@ ul.row {
 
 /* Hero
       ============================= */
-.hero-container {
+.hero {
     color: var(--font-color);
     flex-direction: column;
     text-align: center;
@@ -494,7 +487,7 @@ ul.row {
     transform: translateY(285px);
 }
 
-.hero-container .main-text h1 {
+.hero .main-text h1 {
     font-family: 'Source Sans Pro';
     font-size: 32px;
     font-weight: 700;
@@ -502,7 +495,7 @@ ul.row {
     letter-spacing: 0px;
 }
 
-.hero-container .main-text p {
+.hero .main-text p {
     font-family: 'Source Sans Pro';
     font-size: 16px;
     font-weight: 700;
@@ -512,7 +505,7 @@ ul.row {
 
 }
 
-.hero-container .call-to-act-btn {
+.hero .call-to-act-btn {
     box-shadow: 0px 2px 20px 0px #00000080;
     width: 162px;
     padding-top: 13px;
@@ -532,46 +525,11 @@ ul.row {
 
 }
 
-.hero-container .text {
+.hero .text {
     font-family: Source Sans Pro;
     font-size: 16px;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0px;
     text-align: center;
-}
-
-@media screen And (max-width:480px) {
-    .hero-container {
-        justify-content: center;
-        transform: translateY(185px);
-    }
-}
-
-
-/* WHAT WE DO
-      ============================= */
-
-@media screen AND (max-width:480px) {
-    .what-section {
-
-    }
-}
-
-.what-section div div::before {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'holberton_school-icon' !important;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.what-section .sound::before {
-    content: "\e90e";
 }
