@@ -540,3 +540,91 @@ main .grid .element h2 {
         margin: auto;
     }
 }
+
+/** Main Section - Style Sheet 2-index - Results **/
+
+#results {
+    color: white;
+    background-image: url("images/headphones_hero_2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#results .container {
+    padding: 6rem 4rem;
+}
+
+#results .grid .element {
+    height: 10rem;
+    padding: 0;
+    position: relative;
+    background-image: url("images/pentagone.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#results .grid .element h2 {
+    position: relative;
+    top: 15%;
+    font-size: var(--font-large);
+}
+
+#results .grid .element p {
+    position: relative;
+    top: 10%;
+}
+
+#results .element p {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/** Media Queries**/
+
+@media (max-width: 480px) {
+    #results {
+        background-position: 50%;
+    }
+}
+
+/** Main Section - Style Sheet 3-index - Contact us **/
+
+#formContact {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+input {
+    width: 50%;
+    margin: 1rem 0;
+    height: 2rem;
+    color: black;
+    font-family: var(--font);
+    font-size: 14px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(7, 22, 41, 0.17);
+}
+
+input::placeholder {
+    color: black;
+    font-size: var(--font-medium);
+    font-weight: bold;
+}
+
+input:focus {
+    outline: none;
+}
+
+/** Media queries **/
+@media (max-width: 480px) {
+    input {
+        width: 90%;
+    }
+}

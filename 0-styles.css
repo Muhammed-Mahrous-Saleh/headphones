@@ -1,14 +1,4 @@
-/* SUMMARY
-    1. GLOBAL
-    2. LAYOUT
-    3. SECTION
-    4. CARD
-*/
-
-/*** 1. GLOBAL ***/
-
-/* Reset / Normalize
-   ============================= */
+/** Style Sheet 0-index - Header **/
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -107,6 +97,13 @@ select {
     text-transform: none
 }
 
+[type=button],
+[type=reset],
+[type=submit],
+button {
+    -webkit-appearance: button
+}
+
 [type=button]::-moz-focus-inner,
 [type=reset]::-moz-focus-inner,
 [type=submit]::-moz-focus-inner,
@@ -155,6 +152,7 @@ textarea {
 }
 
 [type=search] {
+    -webkit-appearance: textfield;
     outline-offset: -2px
 }
 
@@ -183,395 +181,269 @@ template {
     display: none
 }
 
-/* Variables
-   ============================= */
-
-:root {
-    --color-light-red: #FF6565;
-    --color-white: #ffffff;
-
-
-    --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-color: white;
-    --container-max-width: 1000px;
-
-    /** NAVBAR **/
-    --nav-item-font-family: 'Source Sans Pro';
-    --nav-item-font-weight: 700;
-    --nav-item-font-size: 12px;
-    --nav-item-letter-spacing: 0px;
-    --nav-item-display: inline-block;
-    --nav-item-margin: 0 0 0 2rem;
-    --nav-item-link-hover: var(--color-light-red);
-
-    /** HEADER **/
-    --header-padding: 4rem 0 0;
-
-    /** BUTTON **/
-    --button-hover-opacity: 0.9;
-
-    /** MOTION **/
-    --transition-duration: .3s;
-    --transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01);
-
-    /** SCREEN **/
-    --mobile: 480px;
-}
-
-
 /* Base
       ============================= */
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 html {
     scroll-behavior: smooth;
-    font-size: 62.5%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-family-title);
-    font-weight: var(--font-weight-bold);
+.container {
+    display: flex;
 }
+
+/** Variables **/
+
+:root {
+    --color-white: #fff;
+    --color-red: #FF6565;
+    --font-small: 12px;
+    --font-medium: 16px;
+    --font-large: 32px;
+    --font: 'Source Sans Pro', 'Lato', sans-serif;
+}
+
+/** Header Styles **/
+
+header {
+    width: 100%;
+    max-width: 100%;
+    background-image: url("images/headphones_hero_1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: var(--color-white);
+}
+
+header .header {
+    justify-content: space-between;
+    align-content: space-between;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+header .header nav {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.header {
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+}
+
+.hero-content p {
+    margin: 2rem 0;
+    line-height: 1.5;
+    font-size: var(--font-medium);
+}
+
+/** Media Query desktop version **/
+
+@media (max-width: 1200px) {
+    header {
+        background-position: 42% 50%;
+    }
+}
+
+/** Links Styles **/
 
 a {
-    color: var(--font-color);
     text-decoration: none;
+    color: var(--color-white);
+    transition: color 0.1s ease;
 }
 
-a:visited {
-    font-style: italic;
-}
-
-a:hover {
-    color: var(--color-light-red);
-}
-
+a:hover,
 a:active {
-    color: var(--color-light-red);
+    color: var(--color-red);
+}
+
+/** Button Style **/
+
+.button {
+    font-family: var(--font);
+    font-size: 14px;
+    background: var(--color-red);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    border-radius: 24px;
+    margin: 1rem auto;
+    cursor: pointer;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    transition: opacity 0.2s ease;
 }
 
 .button:hover,
 .button:active {
-    opacity: var(--button-hover-opacity);
+    opacity: 0.9;
 }
 
-/*** 2. LAYOUT ***/
 
-/* Layout
-      ============================= */
-
-.container {
-    width: 100%;
-    max-width: var(--container-max-width);
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
+/** Logo Styles **/
+.logo {
+    width: 161px;
+    height: auto;
 }
 
-@media (max-width: 780px) {
-    .container {
-        max-width: 100%;
-    }
-}
 
-/* Grid
-          ============================= */
+/** Botton and Manue Mobile**/
 
-.row {
-    display: flex;
-}
-
-ul.row {
-    margin: -1rem;
-    padding: 0;
-    list-style: none;
-}
-
-[class*='col-'] {
-    margin: 1rem;
-}
-
-.col-1-3 {
-    width: calc((100% / 3) - 2rem);
-}
-
-.col-1-2 {
-    width: calc((100% / 2) - 2rem);
-}
-
-/* Landing
-          ============================= */
-.landing-header {
-    background-image: url(assets/images/headphones_hero_1.jpg);
-    background-position: center;
-    height: 800px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Mobile Menu
-          ============================= */
-.mobile-menu {
-    display: flex;
-    flex-direction: column;
-    height: 14px;
-    justify-content: space-between;
-}
-
-.menu-container {
+#menu-toggle {
     display: none;
+    position: absolute;
 }
 
-.mobile-menu span {
-    height: 2px;
-    background-color: var(--color-white);
+#menu-btn {
+    display: none;
+    position: absolute;
 }
 
-.mobile-menu span:first-of-type {
-    width: 20px;
+.header-nav {
+    display: inline-flex;
+    margin: auto 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: var(--font-small);
+    font-weight: 700;
+    font-family: var(--font);
 }
 
-.mobile-menu span:nth-of-type(2) {
-    width: 13px;
+.header-nav li {
+    margin: auto 1.25rem;
 }
 
-.mobile-menu span:last-of-type {
-    width: 18px;
+.hero-content {
+    width: 75%;
+    text-align: center;
+    font-family: var(--font);
+    margin: 20rem auto 0 auto;
 }
 
-.head {
-    display: flex;
+.title {
+    font-size: var(--font-large);
+    position: relative;
+    font-weight: 700;
 }
 
-.activator {
-    visibility: hidden;
+.title+p {
+    display: block;
+    font-size: var(--font-medium);
+    position: relative;
+    margin: 0.25rem 0;
 }
 
-@media screen And (max-width: 480px) {
-    .landing-header {
-        background-position: -350px -30px;
+/** Media query Mobile Version **/
+
+@media (max-width: 480px) {
+    header {
+        background-position: 36% 50%;
     }
 
-    .menu-container {
-        display: block;
-        cursor: pointer;
-    }
-
-    .menu-container:active~.sub-container .nav {
-        display: flex;
+    header .header nav {
         flex-direction: column;
-        align-content: center;
-        justify-content: center;
-        height: fit-content;
-        text-align: center;
         align-items: center;
     }
 
-    .nav .nav-item {
-        margin: 0 !important;
-        width: fit-content;
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
-
-/* Navbar
-          ============================= */
-
-.nav {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: center;
-    height: 32px;
-}
-
-.header-container img {
-    height: 32px;
-}
-
-.nav .nav-item+.nav-item {
-    margin: var(--nav-item-margin);
-}
-
-.nav .nav-item {
-    font-family: var(--nav-item-font-family);
-    font-weight: var(--nav-item-font-weight);
-    font-size: var(--nav-item-font-size);
-    letter-spacing: var(--nav-item-letter-spacing);
-    line-height: 15px;
-    text-align: left;
-}
-
-.nav .nav-link {
-    display: block;
-    padding: 0.5rem 0;
-    position: relative;
-}
-
-.nav .nav-link:hover {
-    color: var(--nav-item-link-hover);
-    text-decoration: none;
-}
-
-.nav .nav-link::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: transparent;
-    width: 0;
-    height: 0.2rem;
-    transition: var(--transition-duration) var(--transition-cubic-bezier);
-}
-
-.nav .nav-item:hover .nav-link::before {
-    background-color: transparent;
-    width: 100%;
-}
-
-/* Header
-      ============================= */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.sub-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-@media screen And (max-width: 1300px) {
-    .header-container {
-        width: 90%;
-    }
-}
-
-@media screen And (max-width: 480px) {
-
-    .sub-container {
-        flex-direction: column;
+    .logo {
+        width: 50%;
+        height: auto;
     }
 
-
-
-    .nav {
+    .header-nav {
         display: none;
+        width: 100%;
+        flex-direction: column;
+        margin: 1rem auto;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
     }
-}
 
-.header {
-    padding: var(--header-padding);
-    position: relative;
-    z-index: 3;
-}
-
-/* Hero
-      ============================= */
-.hero-container {
-    color: var(--font-color);
-    flex-direction: column;
-    text-align: center;
-    justify-content: flex-end;
-    width: 637px;
-    margin-bottom: 391px;
-    transform: translateY(285px);
-}
-
-.hero-container .main-text h1 {
-    font-family: 'Source Sans Pro';
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 40px;
-    letter-spacing: 0px;
-}
-
-.hero-container .main-text p {
-    font-family: 'Source Sans Pro';
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 0px;
-    text-align: center;
-
-}
-
-.hero-container .call-to-act-btn {
-    box-shadow: 0px 2px 20px 0px #00000080;
-    width: 162px;
-    padding-top: 13px;
-    padding-bottom: 13px;
-    background-color: var(--color-light-red);
-    color: var(--font-color);
-    margin: 30px auto;
-    font-family: Source Sans Pro;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: center;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-
-}
-
-.hero-container .text {
-    font-family: Source Sans Pro;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 26px;
-    letter-spacing: 0px;
-    text-align: center;
-}
-
-@media screen And (max-width:480px) {
-    .hero-container {
-        justify-content: center;
-        transform: translateY(185px);
+    .header-nav li {
+        width: 100%;
+        margin: 0.5rem auto;
     }
-}
 
-
-/* WHAT WE DO
-      ============================= */
-
-@media screen AND (max-width:480px) {
-    .what-section {
-
+    .header-content {
+        margin: 14rem auto 0 auto;
+        width: 100%;
     }
-}
 
-.what-section div div::before {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'holberton_school-icon' !important;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+    #menu-btn {
+        background: transparent;
+        height: 25px;
+        width: 13px;
+        position: absolute;
+        left: 1rem;
+        top: 18px;
+        display: block;
+    }
 
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+    #menu-dash {
+        background: white;
+        height: 2px;
+        width: 13px;
+        position: relative;
+        top: 0;
+        display: block;
+    }
 
-.what-section .sound::before {
-    content: "\e90e";
+    #menu-btn::before {
+        content: "";
+        background: white;
+        height: 2px;
+        width: 20px;
+        position: relative;
+        top: -0.4rem;
+        display: block;
+        transition: all 0.2s ease;
+    }
+
+    #menu-btn::after {
+        content: "";
+        background: white;
+        height: 2px;
+        width: 18px;
+        position: relative;
+        top: 0.3rem;
+        display: block;
+        transition: all 0.2s ease;
+    }
+
+    #menu-toggle:checked~.header-nav {
+        display: inline-flex;
+    }
+
+    #menu-toggle:checked~#menu-btn #menu-dash {
+        display: none;
+        height: 0;
+    }
+
+    #menu-toggle:checked~#menu-btn {
+        background: transparent;
+        height: 0px;
+    }
+
+    #menu-toggle:checked~#menu-btn::before {
+        transform: rotate(45deg);
+        top: 3px;
+        margin: auto;
+    }
+
+    #menu-toggle:checked~#menu-btn::after {
+        width: 20px;
+        transform: rotate(-45deg);
+        top: 1px;
+        margin: auto;
+    }
 }
